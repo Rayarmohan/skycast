@@ -1,16 +1,4 @@
 # skycast
 
-A new Flutter project.
+Skycast is a weather application developed using Flutter, a cross-platform framework for building mobile applications. The app utilizes the OpenWeather API to fetch weather data for different locations. It employs state management using the Bloc (Business Logic Component) pattern, which helps in managing the application's state in a predictable and efficient manner.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
