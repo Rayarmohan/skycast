@@ -1,15 +1,14 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:skycast/bloc/weather_bloc.dart';
+import 'package:skycast/bloc/weather/weather_bloc.dart';
 import 'package:skycast/functions/functions.dart';
+import 'package:skycast/screens/fivedayforcast_page.dart';
 import 'package:skycast/widgets/background.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,6 @@ class HomePage extends StatelessWidget {
                           const SizedBox(height: 10),
                           greeting(),
                           getWeatherIcon(state.weather.weatherConditionCode!),
-                          // Image.asset('lib/assets/rain.png'),
                           Center(
                             child: Text(
                               '${state.weather.temperature!.celsius!.round()}° C',
@@ -64,7 +62,6 @@ class HomePage extends StatelessWidget {
                               DateFormat('EEEE dd ·')
                                   .add_jm()
                                   .format(state.weather.date!),
-                              // 'Friday  9:30 am',
                               style: const TextStyle(
                                   fontWeight: FontWeight.w300, fontSize: 16),
                             ),
@@ -184,6 +181,37 @@ class HomePage extends StatelessWidget {
                                 ],
                               ),
                             ],
+                          ),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (ctx) =>
+                                            const FivedayForcartPage()),
+                                  );
+                                },
+                                style: ButtonStyle(
+                                  elevation: MaterialStateProperty.all(8),
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colors.grey[200]!.withOpacity(0.5)),
+                                  padding: MaterialStateProperty.all(
+                                      const EdgeInsets.only(
+                                          left: 55,
+                                          right: 55,
+                                          top: 15,
+                                          bottom: 15)),
+                                ),
+                                child: const Text(
+                                  "5 day forcast",
+                                  style: TextStyle(color: Colors.black),
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
